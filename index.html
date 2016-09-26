@@ -48,10 +48,34 @@
         </div>
     </div>
     <div class="site-footer">
-        
+        Favoriete dier: <input type="text" value="" name="fav-animal" id="input-animal" />
+        <button type="button" id="save-animal">Opslaan</button>
     </div>
 </div>
+<script>
 
+var save_animal_button = document.getElementById('save-animal');
+var animal_input = document.getElementById('input-animal');
+
+// click event zetten op de button
+save_animal_button.addEventListener('click', function(){
+    
+    // waarde halen uit de input
+    var fav_animal = animal_input.value;
+
+    // opslaan naar local storage
+    localStorage.setItem('fav-animal', fav_animal);
+});
+
+window.addEventListener('load', function(){
+
+    // waarde halen uit local storage
+    var favourite_animal = localStorage.getItem('fav-animal');
+
+    animal_input.setAttribute('value', favourite_animal);
+
+});
+</script>
 
 </body>
 </html>
